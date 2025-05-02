@@ -14,26 +14,28 @@ public class GsonAlumno {
         
         if(args.length!=2){
             System.out.println("Error: El argumento del archivo no es correcto");
+            System.out.println("Uso correcto");
+            return;
         }
         String operacion=args[0];
         String fichero=args[1];
         Gson gson=new Gson();
         try{
-            if(Objects.equals(operacion, "init")){
+            if("init".equals(operacion)){
                 Alumno alumno=new Alumno("Malena",12,9);
                 try(FileWriter fw=new FileWriter(fichero)){
                     gson.toJson(alumno,fw);
-                    System.out.println("Fichero creado con datos por defecto: ");
+                    System.out.println("Archivo creado con éxito");
                 }
             }
-            if(Objects.equals(operacion, "show")){
+            else if("show".equals(operacion)){
                 try(FileReader fr=new FileReader(fichero)){
                     Alumno alumno=gson.fromJson(fr,Alumno.class);
-                    System.out.println("Datos leidos del fichero: "+alumno);
+                    System.out.println("Datos del alumno: "+alumno);
                 }
             }
             else{
-                System.out.println("Operación no reconocida.");
+                System.out.println("Error: Operación no reconocida.");
             }
         }
         catch(IOException e){
