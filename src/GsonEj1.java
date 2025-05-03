@@ -21,6 +21,18 @@ public class GsonEj1 {
         GsonUtilEjemplo.cargarObjetoDesdeArchivo(rutaArchivo1,Circle.class);
         GsonUtilEjemplo.cargarObjetoDesdeArchivo(rutaArchivo2,Employee.class);
 
+        Persona persona= new Persona("Lidia",18);
+        Estudiante estudiante= new Estudiante("Carmen", 55);
+
+        String rutaArchivo3="personas.json";
+        String rutaArchivo4="estudiantes.json";
+
+        GsonUtilEjemplo.guardarObjetoEnArchivo(rutaArchivo3, persona);
+        GsonUtilEjemplo.guardarObjetoEnArchivo(rutaArchivo4, estudiante);
+
+        GsonUtilEjemplo.cargarObjetoDesdeArchivo(rutaArchivo3,Persona.class);
+        GsonUtilEjemplo.cargarObjetoDesdeArchivo(rutaArchivo4,Employee.class);
+
 
 
 
